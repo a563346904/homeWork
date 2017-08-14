@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/react/dist/react.js"></script>
+    <script src="node_modules/react-dom/dist/react-dom.js"></script>
+    <script src="node_modules/babel-standalone/babel.js"></script>
+    <style type="text/css">
+        #root {
+            width: 370px;
+            height: 580px;
+            padding: 10px;
+            border: 1px solid black;
+            margin: 0 auto;
+        }
+
+        .title {
+            width: 370px;
+            height: 35px;
+            border: 1px solid black;
+            background-color: #5796B5;
+        }
+
+        .rect {
+            width: 20px;
+            height: 20px;
+            border: 1px solid black;
+            margin-right: 8px;
+            margin-top: 5px;
+            float: right;
+        }
+
+        .row {
+            background: url("img/grade.png");
+            background-size: 100%;
+        }
+        
+        .col{
+            background: url("img/list.png") no-repeat;
+            background-size: 100%;
+        }
+
+        .container {
+            width: 356px;
+            height: 530px;
+            margin: 0 auto;
+            margin-top: 20px;
+            border: 1px solid black;
+
+        }
+
+        .container>a {
+            display: inline-block;
+            width: 175px;
+            height: 175px;
+            float: left;
+            border: 1px solid black;
+            margin-right: 1px;
+            margin-bottom: 1px;
+
+        }
+        .container>a>img{
+            width: 100%;
+            height: 100%;
+        }
+
+
+
+        .container>div>a{
+            display: inline-block;
+            width: 75px;
+            height: 75px;
+            border: 1px solid black;
+            margin-right: 1px;
+
+            vertical-align: top;
+        }
+
+        .container>div{
+            height: 86px;
+            border-bottom: 1px solid black;
+            margin-top: 2px;
+        }
+        .container>div>a>img{
+            width: 100%;
+            height: 100%;
+        }
+        .container>div>b{
+            font-size: 12px;
+            width: 278px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<div id="root"></div>
+
+</body>
+<script type="text/babel">
+
+var arrJson = [
+    {
+        "title": "What You Need To Know About CSS Variables",
+        "url": "http://tutorialzine.com/2016/03/what-you-need-to-know-about-css-variables/",
+        "image": {
+            "large": "http://cdn.tutorialzine.com/wp-content/uploads/2016/03/css-variables.jpg",
+            "small": "http://cdn.tutorialzine.com/wp-content/uploads/2016/03/css-variables-150x150.jpg"
+        }
+    },
+    {
+        "title": "Freebie: 4 Great Looking Pricing Tables",
+        "url": "http://tutorialzine.com/2016/02/freebie-4-great-looking-pricing-tables/",
+        "image": {
+            "large": "http://cdn.tutorialzine.com/wp-content/uploads/2016/02/great-looking-pricing-tables.jpg",
+            "small": "http://cdn.tutorialzine.com/wp-content/uploads/2016/02/great-looking-pricing-tables-150x150.jpg"
+        }
+    },
+    {
+        "title": "20 Interesting JavaScript and CSS Libraries for February 2016",
+        "url": "http://tutorialzine.com/2016/02/20-interesting-javascript-and-css-libraries-for-february-2016/",
+        "image": {
+            "large": "http://cdn.tutorialzine.com/wp-content/uploads/2016/02/interesting-resources-february.jpg",
+            "small": "http://cdn.tutorialzine.com/wp-content/uploads/2016/02/interesting-resources-february-150x150.jpg"
+        }
+    },
+    {
+        "title": "Quick Tip: The Easiest Way To Make Responsive Headers",
+        "url": "http://tutorialzine.com/2016/02/quick-tip-easiest-way-to-make-responsive-headers/",
+        "image": {
+            "large": "http://cdn.tutorialzine.com/wp-content/uploads/2016/02/quick-tip-responsive-headers.png",
+            "small": "http://cdn.tutorialzine.com/wp-content/uploads/2016/02/quick-tip-responsive-headers-150x150.png"
+        }
+    },
+    {
+        "title": "Learn SQL In 20 Minutes",
+        "url": "http://tutorialzine.com/2016/01/learn-sql-in-20-minutes/",
+        "image": {
+            "large": "http://cdn.tutorialzine.com/wp-content/uploads/2016/01/learn-sql-20-minutes.png",
+            "small": "http://cdn.tutorialzine.com/wp-content/uploads/2016/01/learn-sql-20-minutes-150x150.png"
+        }
+    },
+    {
+        "title": "Creating Your First Desktop App With HTML, JS and Electron",
+        "url": "http://tutorialzine.com/2015/12/creating-your-first-desktop-app-with-html-js-and-electron/",
+        "image": {
+            "large": "http://cdn.tutorialzine.com/wp-content/uploads/2015/12/creating-your-first-desktop-app-with-electron.png",
+            "small": "http://cdn.tutorialzine.com/wp-content/uploads/2015/12/creating-your-first-desktop-app-with-electron-150x150.png"
+        }
+    }
+]
+
+    var imgArr = ['https://tutorialzine.com/media/2016/03/css-variables.jpg',
+        'https://tutorialzine.com/media/2016/02/great-looking-pricing-tables.jpg'
+        ,'https://tutorialzine.com/media/2016/02/interesting-resources-february.jpg',
+        'https://tutorialzine.com/media/2016/02/quick-tip-responsive-headers.png'
+        ,'https://tutorialzine.com/media/2016/01/learn-sql-20-minutes.png',
+        'https://tutorialzine.com/media/2015/12/creating-your-first-desktop-app-with-electron.png']
+
+
+
+    class Title extends React.Component{
+
+            render(){
+                return(
+                    <div>
+                        <div  className="title">
+                            <div className="row rect" onClick={this.props.click}> </div>
+                            <div className="col rect" onClick={this.props.click}> </div>
+                        </div>
+                    </div>
+                )
+            }
+    }
+
+    class First extends React.Component{
+        render(){
+            return(
+                <div className="container">
+                    {
+                        imgArr.map(function (item,index) {
+                            return(
+                                    <a href={arrJson[index]} className="col"><img src={item} alt=""/></a>
+                            )
+                        })
+                    }
+
+                </div>
+            )
+        }
+    }
+
+    class Second extends React.Component{
+        render(){
+            return (
+                <div className="container">
+                    {
+                        imgArr.map(function (item,index) {
+                            return (
+                                <div>
+                                    <a href={arrJson[index]} className="list">
+                                        <img src={item} alt=""/>
+                                    </a>
+                                    <b className="title2">{arrJson[index]['title']}</b>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+            )
+        }
+    }
+
+
+    class Allpage extends React.Component{
+
+        constructor(props){
+            super(props)
+            this.state = {
+                flag:false
+            }
+        }
+
+        changeValue = () =>{
+            this.setState({
+                flag : !this.state.flag
+            })
+        }
+
+        render(){
+            if (this.state.flag){
+                return (
+                    <div>
+                        <Title click={ this.changeValue }/>
+                        <First/>
+                    </div>
+                )
+            } else {
+                return (
+                        <div>
+                            <Title click={ this.changeValue }/>
+                            <Second/>
+                        </div>
+                )
+            }
+        }
+
+
+    }
+
+
+
+    ReactDOM.render(
+            <Allpage/>,
+            document.getElementById('root')
+    )
+
+
+
+</script>
+</html>
